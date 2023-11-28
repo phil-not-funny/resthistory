@@ -6,5 +6,5 @@ node_modules/
 jspm_packages/
 
 .npm
-
+package-lock.json
 .vscode

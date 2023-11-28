@@ -1,0 +1,22 @@
+{
+  "name": "resthistory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phil-not-funny/resthistory.git"
+  },
+  "author": "philnotfunny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phil-not-funny/resthistory/issues"
+  },
+  "homepage": "https://github.com/phil-not-funny/resthistory#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
