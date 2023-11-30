@@ -17,7 +17,8 @@ Country.init({
 
 }, {
     sequelize,
-    modelName: "country"
+    modelName: "country",
+    timestamps: false
 });
 
 module.exports = Country;

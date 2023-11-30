@@ -3,6 +3,7 @@ const app = express();
 const sequelize = require("./database");
 
 const { createCountries } = require("./context");
+const Country = require("./model/Country");
 
 sequelize.sync().then(() => {
   console.log("Database ready!");
@@ -10,15 +11,15 @@ sequelize.sync().then(() => {
 
 const PORT = process.env.PORT || 3100;
 
-//STUB - Country creation
-createCountries();
-
 //STUB - Routes
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.get("/", async (req, res) => {
+  res.send(await Country.findAll());
 });
 
 app.listen(PORT, () => {
   console.log("App listening on port " + PORT);
 });
+
+//STUB - Country creation
+createCountries();
