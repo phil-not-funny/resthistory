@@ -13,8 +13,18 @@ const PORT = process.env.PORT || 3100;
 
 //STUB - Routes
 
-app.get("/", async (req, res) => {
-  res.send(await Country.findAll());
+app.get("/all", async (req, res) => {
+  res.send(await Country.findAll({}));
+});
+
+app.get("/country/:id", async (req, res) => {
+  res.send(
+    await Country.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+  );
 });
 
 app.listen(PORT, () => {
