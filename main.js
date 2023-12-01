@@ -4,9 +4,11 @@ const sequelize = require("./database");
 
 const { createCountries } = require("./context");
 const Country = require("./model/Country");
+const read = require("./readExports");
 
 sequelize.sync().then(() => {
   console.log("Database ready!");
+  read();
 });
 
 const PORT = process.env.PORT || 3100;

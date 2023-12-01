@@ -8,3 +8,5 @@ jspm_packages/
 .npm
 package-lock.json
 .vscode
+
+./storage
