@@ -9,4 +9,4 @@ jspm_packages/
 package-lock.json
 .vscode
 
-./storage
+storage
