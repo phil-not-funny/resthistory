@@ -4,11 +4,10 @@ const sequelize = require("./database");
 
 const { createCountries } = require("./context");
 const Country = require("./model/Country");
-const read = require("./readExports");
 
-sequelize.sync().then(() => {
+sequelize.sync({ force: true }).then(() => {
   console.log("Database ready!");
-  read();
+  createCountries();
 });
 
 const PORT = process.env.PORT || 3100;
@@ -19,11 +18,11 @@ app.get("/all", async (req, res) => {
   res.send(await Country.findAll({}));
 });
 
-app.get("/country/:id", async (req, res) => {
+app.get("/country/:name", async (req, res) => {
   res.send(
     await Country.findOne({
       where: {
-        id: req.params.id,
+        name: req.params.name,
       },
     })
   );
@@ -32,6 +31,3 @@ app.get("/country/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log("App listening on port " + PORT);
 });
-
-//STUB - Country creation
-createCountries();
