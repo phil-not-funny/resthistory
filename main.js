@@ -5,14 +5,28 @@ const sequelize = require("./database");
 const { createCountries } = require("./context");
 const Country = require("./model/Country");
 
-sequelize.sync({
-  //
-  force: true
-}).then(() => {
-  console.log("Database ready!");
-  //NOTE - Only enable when regenerating 
-  createCountries();
-});
+const arg1 = process.argv[2];
+if (!arg1)
+  sequelize
+    .sync({
+      force: true,
+    })
+    .then(() => {
+      console.log("Database ready!");
+      //NOTE - Only enable when regenerating
+      createCountries();
+    });
+else if (arg1 === "nogenerate") {
+  sequelize
+    .sync({
+      //force: true
+    })
+    .then(() => {
+      console.log("(Starting without generating)");
+      console.log("Database ready!");
+      //NOTE - Only enable when regenerating createCountries();
+    });
+}
 
 const PORT = process.env.PORT || 3100;
 
