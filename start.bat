@@ -1,5 +1,8 @@
 @echo off
 
+echo Checking for Updates...
+CALL git pull 
+
 echo Installing Dependencies...
 CALL npm i
 
